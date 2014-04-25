@@ -1,6 +1,5 @@
 class RolsController < ApplicationController
   before_action :set_rol, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize
 
   # GET /rols
   # GET /rols.json
