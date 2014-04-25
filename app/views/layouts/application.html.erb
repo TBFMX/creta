@@ -7,8 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="columns">
+		<div id="side">
+			<% if session[:user_id] %>
+				<li><%= link_to 'Users',users_path%></li>
+				<%= "#{session[:rol_id]}"%>
+				<%= button_to 'Logout', logout_path, method: :delete %>
+			<% else %>
 
-<%= yield %>
+				<%= button_to 'Iniciar Sesion', login_path, method: :new %>
+			<% end %>
+		</div>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+
 
 </body>
 </html>
