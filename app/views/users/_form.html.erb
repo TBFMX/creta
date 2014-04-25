@@ -45,7 +45,9 @@
   </div> -->
   <div class="field">
     <%= f.label :rol_id %><br>
-    <%= f.number_field :rol_id %>
+    <%#= f.number_field :rol_id %>
+    <%= select("user", "rol_id", Rol.all.collect {|p| [ p.rol_name, p.id ] }, {include_blank: 'Seleccione uno'}) %>
+    <br>
   </div>
   <div class="actions">
     <%= f.submit %>
