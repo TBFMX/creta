@@ -15,7 +15,12 @@
 /log/*.log
 /tmp
 
+<<<<<<< HEAD
 
 /Gemfile
 /Gemfile.lock
 /Rakefile
+=======
+# Ignore bundler config.
+/Gemfile
+>>>>>>> 7d23362bb4e913d0d8a829abb2effe8bb88c5fa1

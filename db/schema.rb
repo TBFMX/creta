@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425145846) do
+ActiveRecord::Schema.define(version: 20140425151950) do
+
+  create_table "rols", force: true do |t|
+    t.string   "rol_name"
+    t.boolean  "admin"
+    t.boolean  "module_1"
+    t.boolean  "module_2"
+    t.boolean  "module_3"
+    t.boolean  "module_4"
+    t.boolean  "module_5"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"
