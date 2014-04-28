@@ -17,8 +17,12 @@ Rails.application.routes.draw do
 
   resources :rols
 
-  post 'recover_password' => 'user#recover_password'
+  controller :users do
+  get 'recover_password' => 'users#recover_password'
+  post 'recover_password' => 'users#recover_password'  
+  end 
 
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
