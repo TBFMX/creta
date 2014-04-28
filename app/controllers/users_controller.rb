@@ -66,6 +66,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def reset_password
+    @user = User.find(params[:id])
+    @user.update(user_params) 
+    Mailer.reset_password(@user).deliver  
+  end 
+
+  def recover_password
+    @user = User.find(params[:id])
+    Mailer.recover_password(@user).deliver    
+  end
+   
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
