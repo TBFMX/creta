@@ -21,6 +21,9 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def new_recover_password
+  end
+
   # POST /users
   # POST /users.json
   def create
@@ -73,8 +76,13 @@ class UsersController < ApplicationController
   end 
 
   def recover_password
-    @user = User.find(user_params)
-    Mailer.recover_password(@user).deliver    
+    @user = User.where(["username= ? and email= ?",params[:username],params[:email]])
+    if @user.empty?
+      redirect_to "http://www.google.com/"
+    else
+      Mailer.recover_password(@user).deliver 
+      redirect_to users_url
+    end   
   end
    
 

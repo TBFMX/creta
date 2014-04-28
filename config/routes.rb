@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'admin' => 'admin#index'
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
@@ -18,10 +19,11 @@ Rails.application.routes.draw do
   resources :rols
 
   controller :users do
-  get 'recover_password' => 'users#recover_password'
-  post 'recover_password' => 'users#recover_password'  
+    get 'recover_password' => :recover_password
+    post 'recover_password' => :recover_password 
+    get 'new_recover_password' => :new_recover_password
+    post 'new_recover_password' => :new_recover_password 
   end 
-
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
