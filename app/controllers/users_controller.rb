@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:recover_password, :new_recover_password]
   
   # GET /users
   # GET /users.json
@@ -22,6 +23,10 @@ class UsersController < ApplicationController
   end
 
   def new_recover_password
+  end
+
+  def new_cambiar_password
+    @user = User.find_by(id: session[:user_id])
   end
 
   # POST /users
@@ -69,10 +74,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def reset_password
-    @user = User.find(params[:id])
-    @user.update(user_params) 
-    Mailer.reset_password(@user).deliver  
+  def cambiar_password
+    @user = User.find(params[:id]) 
+    Mailer.cambiar_password(@user).deliver  
   end 
 
   def recover_password

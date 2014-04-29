@@ -6,15 +6,14 @@ class Mailer < ActionMailer::Base
   #
   #   en.mailer.reset_password.subject
   #
-  def reset_password
+  def reset_password(user,uemail)
     @greeting = "Hi"
-
-    mail to: "to@example.org"
-
-    # @user = user
-    #  mail(:to => user.email, :subject => "Password Reset")
+    @user = user
+    #mail to: uemail
+    mail(:to => uemail, :subject => "Password Reset")
 
   end
+
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
