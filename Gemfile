@@ -40,4 +40,3 @@ gem 'bcrypt', '~> 3.1.7'
 
 #gem 'client_side_validations'
 
-gem 'better_errors'

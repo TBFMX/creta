@@ -70,9 +70,9 @@ class UsersController < ApplicationController
   end
 
   def reset_password
-    @user = User.find(params[:id])
+    @user = User.where(["username= ? and email= ?",params[:username],params[:email]])
     @user.update(user_params) 
-    Mailer.reset_password(@user).deliver  
+    Mailer.reset_password(@user,params[:email]).deliver  
   end 
 
   def recover_password
@@ -80,7 +80,9 @@ class UsersController < ApplicationController
     if @user.empty?
       redirect_to "http://www.google.com/"
     else
-      Mailer.recover_password(@user).deliver 
+      #puts @user.inspect
+
+      Mailer.recover_password(@user,params[:email]).deliver 
       redirect_to users_url
     end   
   end

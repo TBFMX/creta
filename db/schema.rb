@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425151950) do
+ActiveRecord::Schema.define(version: 20140429150239) do
 
   create_table "rols", force: true do |t|
     t.string   "rol_name"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20140425151950) do
     t.integer  "rol_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+
   get 'admin' => 'admin#index'
 
   controller :sessions do
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
   resources :users
 
   resources :rols
+
+  resources :password_resets
 
   controller :users do
     get 'recover_password' => :recover_password

@@ -6,13 +6,11 @@ class Mailer < ActionMailer::Base
   #
   #   en.mailer.reset_password.subject
   #
-  def reset_password
+  def reset_password(user,uemail)
     @greeting = "Hi"
-
-    mail to: "to@example.org"
-
-    # @user = user
-    #  mail(:to => user.email, :subject => "Password Reset")
+    @user = user
+    #mail to: uemail
+    mail(:to => uemail, :subject => "Password Reset")
 
   end
 
@@ -21,12 +19,28 @@ class Mailer < ActionMailer::Base
   #
   #   en.mailer.recover_password.subject
   #
-  def recover_password(user)
+  def recover_password(user,uemail)
     @greeting = "Hi"
-
-    mail to: "to@example.org"
-
-    # @user = user
-    #  mail(:to => user.email, :subject => "Recuperacion de Password")
+    @user = user
+    #mail to: uemail
+    mail(:to => uemail, :subject => "Recuperacion de Password")
   end
+
+  def password_reset(user)
+    @user = user
+    mail :to => user.email, :subject => "Password Reset"
+  end
+
+  def create_user(user)
+    @user = user
+    mail :to => user.email, :subject => "Se creo su usuario"
+  end
+
+  def create_user(user)
+    @user = user
+    mail :to => user.email, :subject => "Su usuario a sido destruido"
+  end
+
+
+  
 end
