@@ -11,5 +11,9 @@ class ApplicationController < ActionController::Base
   			session[:lasurl]= request.original_url
   			redirect_to login_url, notice: "Please log in"
   		end
+      unless session[:rol_id]==1
+        redirect_to "https://www.google.com.mx/"
+      end  
   	end
+
 end
