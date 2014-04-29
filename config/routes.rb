@@ -27,7 +27,12 @@ Rails.application.routes.draw do
     post 'recover_password' => :recover_password 
     get 'new_recover_password' => :new_recover_password
     post 'new_recover_password' => :new_recover_password 
+    get 'cambiar_password' => :cambiar_password
+    post 'cambiar_password' => :cambiar_password
+    get 'new_cambiar_password' => :new_cambiar_password
+    post 'new_cambiar_password' => :new_cambiar_password
   end 
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
