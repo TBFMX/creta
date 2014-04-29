@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :module5s
+
+  resources :module4s
+
+  resources :module3s
+
+  resources :module2s
+
+  resources :module1s
+
   get 'password_resets/new'
 
   get 'admin' => 'admin#index'
@@ -33,12 +43,13 @@ Rails.application.routes.draw do
     post 'new_cambiar_password' => :new_cambiar_password
   end 
 
+  #get 'welcome' => 'index#welcome'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  #root 'index#welcome'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
