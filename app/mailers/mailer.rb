@@ -37,7 +37,7 @@ class Mailer < ActionMailer::Base
     mail :to => user.email, :subject => "Se creo su usuario"
   end
 
-  def create_user(user)
+  def destroy_user(user)
     @user = user
     mail :to => user.email, :subject => "Su usuario a sido destruido"
   end

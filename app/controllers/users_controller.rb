@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        Mailer.create_user(@user).deliver
         format.html { redirect_to @user, notice: "El usuario #{@user.username} fue creado exitosamente." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -64,6 +65,7 @@ class UsersController < ApplicationController
   def destroy
     begin
       @user.destroy
+      Mailer.destroy_user(@user).deliver
       flash[:notice] = "User #{@user.username} deleted"
     rescue StandardError => e
       flash[:notice] = e.message
