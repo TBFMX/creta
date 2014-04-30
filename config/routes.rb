@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'welcome/index'
+
   resources :module5s
 
   resources :module4s
@@ -19,12 +21,21 @@ Rails.application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
+
+  controller :welcome do
+    get 'welcome/index' => :new
+    post 'welcome/index' => :create
+    delete 'welcome/index' => :destroy
+    delete 'welcome/logout' => :destroy
+  end
   
   get 'sessions/new'
 
   get 'sessions/create'
 
   get 'sessions/destroy'
+
+  resources :welcome
 
   resources :users
 
@@ -49,7 +60,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  #root 'index#welcome'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
