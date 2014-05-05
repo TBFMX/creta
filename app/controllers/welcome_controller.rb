@@ -23,9 +23,15 @@ class WelcomeController < ApplicationController
       session[:mod5] =rol.module_5
       #termina variables de rol
 
-  		redirect_to session[:lasurl]
+
+      unless session[:lasurl].nil? || session[:lasurl].empty?
+  		  redirect_to session[:lasurl]
+      else 
+        redirect_to root_url
+      end
+
   	else
-  		redirect_to login_url, alert: "Invalid user/password combination"
+  		redirect_to root_url, alert: "Invalid user/password combination"
   	end
   end
 

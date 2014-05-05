@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     post 'welcome/index' => :create
     delete 'welcome/index' => :destroy
     delete 'welcome/logout' => :destroy
+    #post '/' => :create
+    #delete '/' => :destroy
+    #delete '/logout' => :destroy
   end
   
   get 'sessions/new'
