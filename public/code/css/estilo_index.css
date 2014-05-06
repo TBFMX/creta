@@ -22,7 +22,12 @@
 #bloque_1{
 	background-size: 20em 20em;
 	background-color:#FFFFFF;	
-	background-image:url(../../images/bloque_1.png);	
+	/*background-image:url(../../images/bloque_1.png);	*/
+}
+
+#bloque_1 img{
+	width: 20em;
+	height: 20em;
 }
 
 #bloque_2{
