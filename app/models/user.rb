@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   belongs_to :rol 
   after_destroy :ensure_an_admin_remains
-  validates :password, 
-              presence: true, 
-              length: { in: 6..20 }
+#  validates :password, 
+#              presence: true, 
+#              length: { in: 6..20 }
   validates :email, 
               presence: true, 
               uniqueness: true
