@@ -16,6 +16,9 @@
 			<div id="bloque_2_1" class="bloque_2">
  				<% unless User.find_by(id: session[:user_id]) %>
 					<%= form_tag do %>
+						<% if flash[:alert] %>
+							<p id="notice"><%= flash[:alert] %></p>
+						<% end %>
 						<div>
 							<%= label_tag :username, 'Name:' %> </br>
 							<%= text_field_tag :username, params[:username] %>
@@ -34,9 +37,9 @@
 							<p><%= link_to "forgotten password?", new_password_reset_path %></p>
 							
 						</div>
-
 				<% else %>
 					<p>Bienvenido <%= "#{session[:uname]}"%></p>
+					<%= link_to "Cambiar Password", new_cambiar_password_path %>
 					<%= button_to 'Logout', logout_path, method: :delete %>
 				<%end %>
 			</div>        
@@ -47,10 +50,8 @@
             www.tbf.mx<br />
       		info@tbf.mx<br />
      		T.(81) 2086.0032<br /></span> 
-  			<span class="info_bloque3_2">Rep. Dominicana 645<br />
-    		vista Hermosa<br />
-    		Monterrey, Nuevo Le&oacute;n<br />
-    		C.P. 64620 </span> 
+  			<span class="info_bloque3_2">
+                Monterrey, M&eacute;xico </span>
             </div>        
 		</div>
 		<div id="bloque_4">

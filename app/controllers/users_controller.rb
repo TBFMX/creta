@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :autorizar
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize, only: [:recover_password, :new_recover_password]
+  skip_before_action :autorizar, only: [:cambiar_password, :new_cambiar_password]
   
   # GET /users
   # GET /users.json
@@ -106,6 +108,12 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def autorizar
+        unless session[:mod0] == true
+          redirect_to "/"
+        end
     end
 
     
