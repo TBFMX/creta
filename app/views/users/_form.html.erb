@@ -16,7 +16,7 @@
     <%= f.text_field :username %>
   </div>
 
-  <% unless @user.username? %>
+  
       <div class="field">
         <%= f.label :password %><br>
         <%= f.password_field :password %>
@@ -25,7 +25,7 @@
         <%= f.label :password_confirmation %><br>
         <%= f.password_field :password_confirmation %>
       </div>  
-  <% end %>
+
 
   <div class="field">
     <%= f.label :name %><br>
