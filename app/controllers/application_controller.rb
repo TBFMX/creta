@@ -9,11 +9,11 @@ class ApplicationController < ActionController::Base
   	def authorize
   		unless User.find_by(id: session[:user_id])
   			session[:lasurl]= request.original_url
-  			redirect_to root_path , notice: "Please log in"
+  			redirect_to root_path, notice: "Please log in"
   		end
-      unless session[:admin] == true
-        #redirect_to "https://www.google.com.mx/"
-      end  
+      		#unless session[:mod0] == true
+            #redirect_to root_path
+      		#end  
   	end
 
 end

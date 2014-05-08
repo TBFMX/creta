@@ -112,7 +112,7 @@ class UsersController < ApplicationController
 
     def autorizar
         unless session[:mod0] == true
-          redirect_to "/"
+          redirect_to root_path
         end
     end
 

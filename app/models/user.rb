@@ -3,17 +3,15 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   belongs_to :rol 
   after_destroy :ensure_an_admin_remains
-#  validates :password, 
-#              presence: true, 
-#              length: { in: 6..20 }
+  validates :password, 
+             presence: true, length: { in: 6..20 }
   validates :email, 
-              presence: true, 
-              uniqueness: true
+             presence: true, 
+             uniqueness: true
   validates_format_of :email, 
-              :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
-              :message => ' - El email no es un formato valido.'
-  validates :name, :lastname, :rol,
-              presence: true
+    :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, 
+    :message => ' - The email provided does not have a valid format.'
+  validates :name, :lastname, :rol, presence: true
 
   def send_password_reset
 	  generate_token(:password_reset_token)
