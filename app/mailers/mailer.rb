@@ -29,7 +29,7 @@ class Mailer < ActionMailer::Base
 
   def password_reset(user)
     @user = user
-    mail :to => user.email, :subject => "Password Reset" , :from => "\"Conserje\" <info@tbf.mx>, :reply_to =>"conserje@tbf.com""
+    mail :to => user.email, :subject => "Password Reset" , :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com"
   end
 
   def create_user(user)
