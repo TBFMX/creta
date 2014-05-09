@@ -12,6 +12,22 @@
 	font-family:Arial, Helvetica, sans-serif;
 }
 
+input[type="submit"]{
+	  border: 1px solid #FFFFFF;
+	  font-size: 12px;
+	  font-family: Arial, Verdana;
+	  background: #69C6CD;
+	  width: 100px;
+	  height: 25px;
+	  color: #FFFFFF;
+  }
+   
+input[type="submit"]:hover{
+	  background: #06ADB9;
+	  color: #FFFFFF;
+	  border-color: #FFFFFF;
+  }
+
 #bloque_1,#bloque_2,#bloque_3,#bloque_4,#bloque_5,#bloque_6,#bloque_7,#bloque_8,#bloque_9{
 	float:left;
 	position: absolute;
@@ -20,14 +36,8 @@
 }
 
 #bloque_1{
-	background-size: 20em 20em;
 	background-color:#FFFFFF;	
-	/*background-image:url(../../images/bloque_1.png);	*/
-}
-
-#bloque_1 img{
-	width: 20em;
-	height: 20em;
+	background-image:url(../../images/tbf_320.png);	
 }
 
 #bloque_2{
