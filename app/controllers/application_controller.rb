@@ -11,9 +11,7 @@ class ApplicationController < ActionController::Base
   			session[:lasurl]= request.original_url
   			redirect_to root_path, notice: "Please log in"
   		end
-      		#unless session[:mod0] == true
-            #redirect_to root_path
-      		#end  
+ 
   	end
 
 end

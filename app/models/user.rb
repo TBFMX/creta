@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   belongs_to :rol 
   after_destroy :ensure_an_admin_remains
-  validates :password, 
-             presence: true, length: { in: 6..20 }
+  validates :password, presence: true, length: { in: 6..20 }, :on => :create
   validates :email, 
              presence: true, 
              uniqueness: true
@@ -26,16 +25,11 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
 
-
   private
-	def ensure_an_admin_remains
-		if User.count.zero?
-			raise "Can't delete last user"
-		end
-	end
-
-	
-
-
-
+    def ensure_an_admin_remains
+		  if User.count.zero?
+        raise "Can't delete last user"
+		  end
+    end
+    
 end
