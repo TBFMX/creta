@@ -36,9 +36,9 @@ input[type="submit"]:hover{
 	width:20em;
 }
 
-#bloque_1{
-	background-color:#FFFFFF;	
-	background-image:url(../../images/tbf_320.png);	
+#bloque_1 img{
+	width: 19em;
+	height: 19em;
 }
 
 #bloque_2{
