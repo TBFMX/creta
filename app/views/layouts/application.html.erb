@@ -13,10 +13,12 @@
 				<li><%#= link_to 'Users',users_path%></li>
 				<%#= "#{session[:rol_id]}"%>
 				<%#= "#{session[:uname]}"%>
-				<%#= button_to 'Logout', logout_path, method: :delete %>
+				<p>Bienvenido <%= "#{session[:thename]}"%>||</p>
+				<%= button_to 'Logout', logout_path, method: :delete %>
 			    <%#= link_to "Cambiar Password", new_cambiar_password_path %>
 			<% else %>
-				<%#= button_to 'Iniciar Sesion', login_path, method: :new %>
+				<p>Bienvenido Visitante||</p>
+				<%= button_to 'Iniciar Sesion', login_path, method: :new %>
 			<% end %>
 		</div>
 	</div>

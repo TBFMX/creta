@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   	if user and user.authenticate(params[:password])
   		session[:user_id] = user.id
       session[:uname] = params[:username]
+      session[:thename] = user.name
   		session[:rol_id] = user.rol_id
 
       #variables de rol
