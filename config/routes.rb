@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
 
   controller :sessions do
-    get 'login' => :new
+    get 'login' => :new 
     post 'login' => :create
     delete 'logout' => :destroy
   end
@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     get 'new_cambiar_password' => :new_cambiar_password
     post 'new_cambiar_password' => :new_cambiar_password
   end 
+
 
   #get 'welcome' => 'index#welcome'
   

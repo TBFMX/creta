@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize, only: [:recover_password, :new_recover_password]
   skip_before_action :autorizar, only: [:cambiar_password, :new_cambiar_password]
-  
+  skip_before_action :autorizar, only: [:new,:create]
+  skip_before_action :authorize, only: [:new,:create]
   # GET /users
   # GET /users.json
   def index

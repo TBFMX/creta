@@ -10,7 +10,7 @@ class Mailer < ActionMailer::Base
     @greeting = "Hi"
     @user = user
     #mail to: uemail
-    mail(:to => uemail, :subject => "Password Reset", :from => "\"Conserje\" <info@tbf.mx>")
+    mail(:to => uemail, :subject => "Password Reset", :from => "\"Arturito Lopez\" ")
 
   end
 
@@ -24,22 +24,22 @@ class Mailer < ActionMailer::Base
     @greeting = "Hi"
     @user = user
     #mail to: uemail
-    mail(:to => uemail, :subject => "Recuperacion de Password", :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com")
+    mail(:to => uemail, :subject => "Recuperacion de Password", :from => "\"Arturito Lopez\" ", :reply_to =>"arturito@tbf.com")
   end
 
   def password_reset(user)
     @user = user
-    mail :to => user.email, :subject => "Password Reset" , :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com"
+    mail :to => user.email, :subject => "Password Reset" , :from => "\"Arturito Lopez\" ", :reply_to =>"arturito@tbf.mx"
   end
 
   def create_user(user)
     @user = user
-    mail :to => user.email, :subject => "Se creo su usuario", :from => "\"Conserje\"<info@tbf.mx>", :reply_to =>"conserje@tbf.com"
+    mail :to => user.email, :subject => "Se creo su usuario", :from => "\"Arturito Lopez\" ", :reply_to =>"arturito@tbf.mx"
   end
 
   def destroy_user(user)
     @user = user
-    mail :to => user.email, :subject => "Su usuario a sido destruido", :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com"
+    mail :to => user.email, :subject => "Su usuario a sido destruido", :from => "\"Arturito Lopez\" ", :reply_to =>"arturito@tbf.mx"
   end
 
 
