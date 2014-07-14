@@ -5,6 +5,13 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def createfb
+    puts "---------------------holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-------------------"
+    user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = user.id
+    redirect_to root_url
+  end  
+
   def create
   	user = User.find_by(username: params[:username])
   	if user and user.authenticate(params[:password])
@@ -32,4 +39,9 @@ class SessionsController < ApplicationController
   	session[:user_id] = nil
   	redirect_to root_path, notice: "Logged out"
   end
+
+  protected
+    def auth_hash
+      request.env['omniauth.auth']
+    end
 end

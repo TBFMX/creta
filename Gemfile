@@ -44,4 +44,9 @@ end
 # gem 'debugger', group: [:development, :test]
 
 #gem 'client_side_validations'
+gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
+gem 'omniauth-identity'
+
 

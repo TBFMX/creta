@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429204751) do
+ActiveRecord::Schema.define(version: 20140714150106) do
 
   create_table "module1s", force: true do |t|
     t.string   "name"
@@ -68,6 +68,10 @@ ActiveRecord::Schema.define(version: 20140429204751) do
     t.datetime "updated_at"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
 end

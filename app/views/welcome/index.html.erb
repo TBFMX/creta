@@ -4,7 +4,7 @@
 							<p id="notice"><%= flash[:alert] %></p>
 						<% end %>
 						<div>
-							<%= label_tag :username, 'Name:' %> </br>
+							<%= label_tag :username, 'Email:' %> </br>
 							<%= text_field_tag :username, params[:username] %>
 						</div>
 						<div>
@@ -21,8 +21,17 @@
 							<p><%= link_to "forgotten password?", new_password_reset_path %></p>
 							
 						</div>
+						
 				<% else %>
 					<p>Bienvenido <%= "#{session[:uname]}"%></p>
 					<%= link_to "Cambiar Password", new_cambiar_password_path %>
 					<%= button_to 'Logout', logout_path, method: :delete %>
 				<%end %>
+				<div id="user-widget">
+				  <% if current_user %>
+				    Welcome <strong><%= current_user.name %></strong>!
+				    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+				  <% else %>
+				    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+				  <% end %>
+				</div>

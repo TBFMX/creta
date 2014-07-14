@@ -32,6 +32,21 @@ class UsersController < ApplicationController
     @user = User.find_by(id: session[:user_id])
   end
 
+  def createfb
+    @user = User.new(user_params)
+
+    respond_to do |format|
+      if @user.save
+        Mailer.create_user(@user).deliver
+        format.html { redirect_to @user, notice: "El usuario #{@user.username} fue creado exitosamente." }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # POST /users
   # POST /users.json
   def create
@@ -121,6 +136,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
+      params[:user][:username] = params[:user][:email]
       params.require(:user).permit(:username, :password, :password_confirmation, :name, :lastname, :email, :login_date, :password_date, :rol_id)
     end
 end

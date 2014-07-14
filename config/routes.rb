@@ -57,6 +57,18 @@ Rails.application.routes.draw do
     post 'new_cambiar_password' => :new_cambiar_password
   end 
 
+  #get '/auth/facebook/callback', to: 'sessions#createfb'
+
+  get 'auth/:provider/callback', to: 'sessions#createfb'
+  post 'auth/:provider/callback', to: 'sessions#createfb'
+  #, via: [:get, :post]
+  get 'auth/failure', to: redirect('/')
+  post 'auth/failure', to: redirect('/')
+  #, via: [:get, :post]
+  get 'signout', to: 'sessions#destroy'
+  post 'signout', to: 'sessions#destroy'
+  #, as: 'signout', via: [:get, :post]
+
 
   #get 'welcome' => 'index#welcome'
   
